@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bharat Kareti | Supply Chain Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #07080F;
+    --navy-mid: #0D1526;
+    --navy-card: #111827;
+    --teal: #00C9BC;
+    --teal-dim: rgba(0,201,188,0.12);
+    --gold: #F4B942;
+    --white: #F8FAFC;
+    --slate: #8892A4;
+    --slate-light: #B8C4D4;
+    --border: rgba(255,255,255,0.07);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* ── NAV ─────────────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 5%;
+    height: 68px;
+    background: rgba(7,8,15,0.85);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.15rem; font-weight: 700;
+    color: var(--white); letter-spacing: -0.02em;
+  }
+  .nav-logo span { color: var(--teal); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: var(--slate-light); text-decoration: none;
+    font-size: 0.85rem; font-weight: 500;
+    transition: color 0.2s;
+    letter-spacing: 0.03em;
+  }
+  .nav-links a:hover { color: var(--teal); }
+  .nav-cta {
+    background: var(--teal);
+    color: var(--navy) !important;
+    padding: 0.45rem 1.1rem;
+    border-radius: 6px;
+    font-weight: 600 !important;
+    transition: opacity 0.2s !important;
+  }
+  .nav-cta:hover { opacity: 0.85 !important; color: var(--navy) !important; }
+
+  /* ── HERO ─────────────────────────────────────────── */
+  #hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 100px 5% 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-grid-bg {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(0,201,188,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,201,188,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+  .hero-glow {
+    position: absolute;
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,201,188,0.12) 0%, transparent 70%);
+    top: -150px; right: -100px;
+    pointer-events: none;
+  }
+  .hero-content { position: relative; z-index: 2; }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: var(--teal-dim);
+    border: 1px solid rgba(0,201,188,0.25);
+    color: var(--teal);
+    padding: 0.35rem 1rem;
+    border-radius: 100px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--teal);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%,100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(1.4); }
+  }
+  .hero-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.3rem;
+  }
+  .hero-name .accent { color: var(--teal); }
+  .hero-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-weight: 400;
+    color: var(--slate-light);
+    margin-bottom: 1.6rem;
+    letter-spacing: -0.01em;
+  }
+  .hero-statement {
+    font-size: 1.05rem;
+    color: var(--slate-light);
+    max-width: 520px;
+    line-height: 1.75;
+    margin-bottom: 2.4rem;
+  }
+  .hero-statement strong { color: var(--white); font-weight: 600; }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+  .btn-primary {
+    background: var(--teal);
+    color: var(--navy);
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    letter-spacing: 0.02em;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,201,188,0.35); }
+  .btn-secondary {
+    background: transparent;
+    color: var(--white);
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s, background 0.2s;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+  }
+  .btn-secondary:hover { border-color: var(--teal); background: var(--teal-dim); }
+
+  /* Impact counters strip */
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+  .stat-item { text-align: left; }
+  .stat-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.9rem; font-weight: 700;
+    color: var(--teal);
+    letter-spacing: -0.04em;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+  .stat-label { font-size: 0.75rem; color: var(--slate); font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; }
+
+  /* Hero right: avatar + floating cards */
+  .hero-visual {
+    position: relative; z-index: 2;
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center;
+  }
+  .avatar-ring {
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--teal) 0%, rgba(0,201,188,0.3) 100%);
+    padding: 3px;
+    position: relative;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 0 80px rgba(0,201,188,0.2);
+  }
+  .avatar-inner {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    background: var(--navy-mid);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 5rem; font-weight: 700;
+    color: var(--teal);
+    letter-spacing: -0.05em;
+  }
+  .floating-card {
+    position: absolute;
+    background: rgba(17,24,39,0.95);
+    border: 1px solid rgba(0,201,188,0.2);
+    border-radius: 12px;
+    padding: 0.9rem 1.2rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    animation: float 4s ease-in-out infinite;
+  }
+  .fc-1 { top: 0px; right: -30px; animation-delay: 0s; }
+  .fc-2 { bottom: 30px; left: -50px; animation-delay: 1.5s; }
+  .fc-3 { top: 100px; left: -60px; animation-delay: 0.8s; }
+  @keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  .fc-label { font-size: 0.7rem; color: var(--slate); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 0.2rem; }
+  .fc-value { font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--white); }
+  .fc-value .up { color: var(--teal); }
+  .fc-mini { font-size: 0.72rem; color: var(--slate-light); }
+  .location-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--navy-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.82rem; color: var(--slate-light);
+  }
+  .location-badge .dot { width: 8px; height: 8px; background: #22C55E; border-radius: 50%; }
+
+  /* ── SECTION BASE ─────────────────────────────────── */
+  section { padding: 100px 5%; }
+  .section-label {
+    font-size: 0.72rem; font-weight: 700;
+    color: var(--teal);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+  .section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+  .section-sub { color: var(--slate-light); font-size: 1.05rem; max-width: 540px; line-height: 1.75; }
+
+  /* ── IMPACT STRIP ─────────────────────────────────── */
+  #impact-strip {
+    background: var(--teal);
+    padding: 0;
+    overflow: hidden;
+  }
+  .strip-track {
+    display: flex;
+    gap: 0;
+    animation: scroll-strip 28s linear infinite;
+    width: max-content;
+  }
+  @keyframes scroll-strip {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .strip-item {
+    display: inline-flex; align-items: center; gap: 1rem;
+    padding: 1rem 3rem;
+    white-space: nowrap;
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    border-right: 1px solid rgba(7,8,15,0.15);
+  }
+  .strip-item .s-num { font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; }
+  .strip-dot { width: 5px; height: 5px; background: var(--navy); border-radius: 50%; opacity: 0.3; }
+
+  /* ── ABOUT ────────────────────────────────────────── */
+  #about { background: var(--navy-mid); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+    margin-top: 3.5rem;
+  }
+  .about-story p { color: var(--slate-light); line-height: 1.85; margin-bottom: 1.25rem; font-size: 1rem; }
+  .about-story p strong { color: var(--white); }
+  .about-right {}
+  .strength-card {
+    display: flex; gap: 1.2rem; align-items: flex-start;
+    padding: 1.4rem;
+    background: var(--navy-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .strength-card:hover { border-color: rgba(0,201,188,0.3); transform: translateX(4px); }
+  .sc-icon {
+    width: 42px; height: 42px; min-width: 42px;
+    background: var(--teal-dim);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+  }
+  .sc-title { font-weight: 600; font-size: 0.9rem; color: var(--white); margin-bottom: 0.3rem; }
+  .sc-text { font-size: 0.83rem; color: var(--slate); line-height: 1.6; }
+
+  /* ── SKILLS ────────────────────────────────────────── */
+  #skills { background: var(--navy); }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3.5rem;
+  }
+  .skill-group {
+    background: var(--navy-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.8rem;
+    transition: border-color 0.2s;
+  }
+  .skill-group:hover { border-color: rgba(0,201,188,0.25); }
+  .sg-heading {
+    font-size: 0.72rem; font-weight: 700;
+    color: var(--teal);
+    letter-spacing: 0.1em; text-transform: uppercase;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .skill-tag {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    color: var(--slate-light);
+    padding: 0.35rem 0.85rem;
+    border-radius: 100px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+  .skill-tag:hover { background: var(--teal-dim); border-color: var(--teal); color: var(--teal); }
+  .skill-tag.highlight { background: var(--teal-dim); border-color: rgba(0,201,188,0.4); color: var(--teal); }
+
+  /* ── PROJECTS ──────────────────────────────────────── */
+  #projects { background: var(--navy-mid); }
+  .projects-grid { display: grid; gap: 2.5rem; margin-top: 3.5rem; }
+  .project-card {
+    background: var(--navy-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .project-card:hover { border-color: rgba(0,201,188,0.3); transform: translateY(-4px); }
+  .project-card.reverse { grid-template-columns: 1.2fr 1fr; }
+  .project-card.reverse .pc-visual { order: -1; }
+  .pc-content { padding: 2.5rem 2rem; display: flex; flex-direction: column; justify-content: space-between; }
+  .pc-tag {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--teal-dim);
+    border: 1px solid rgba(0,201,188,0.2);
+    color: var(--teal);
+    padding: 0.3rem 0.85rem;
+    border-radius: 100px;
+    font-size: 0.72rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.07em;
+    margin-bottom: 1.2rem;
+    width: fit-content;
+  }
+  .pc-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.35rem; font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+  }
+  .pc-desc { color: var(--slate-light); font-size: 0.88rem; line-height: 1.75; margin-bottom: 1.5rem; }
+  .pc-impact {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 1.2rem;
+    background: rgba(0,201,188,0.05);
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(0,201,188,0.1);
+  }
+  .pi-item { text-align: center; }
+  .pi-num { font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--teal); line-height: 1; margin-bottom: 0.2rem; }
+  .pi-label { font-size: 0.68rem; color: var(--slate); text-transform: uppercase; letter-spacing: 0.06em; }
+  .pc-tech { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
+  .tech-badge {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--border);
+    color: var(--slate-light);
+    padding: 0.25rem 0.7rem;
+    border-radius: 6px;
+    font-size: 0.73rem; font-weight: 600;
+  }
+  .pc-link {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    color: var(--teal); text-decoration: none;
+    font-size: 0.85rem; font-weight: 600;
+    transition: gap 0.2s;
+  }
+  .pc-link:hover { gap: 0.8rem; }
+  .pc-visual {
+    background: var(--navy-mid);
+    border-left: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    padding: 1.5rem;
+    min-height: 300px;
+    position: relative;
+    overflow: hidden;
+  }
+  .project-card.reverse .pc-visual { border-left: none; border-right: 1px solid var(--border); }
+  .pc-visual iframe {
+    width: 100%; height: 100%; min-height: 280px;
+    border: none; border-radius: 8px;
+    pointer-events: none;
+    transform: scale(0.72);
+    transform-origin: center center;
+  }
+  .iframe-overlay {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 2;
+    cursor: pointer;
+    background: rgba(7,8,15,0);
+    transition: background 0.2s;
+  }
+  .iframe-overlay:hover { background: rgba(7,8,15,0.2); }
+  .iframe-btn {
+    background: var(--teal);
+    color: var(--navy);
+    padding: 0.6rem 1.4rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.82rem;
+    text-decoration: none;
+    display: flex; align-items: center; gap: 0.5rem;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .iframe-overlay:hover .iframe-btn { opacity: 1; transform: translateY(0); }
+  .pc-mockup {
+    width: 100%; height: 100%; min-height: 280px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* ── EXPERIENCE ────────────────────────────────────── */
+  #experience { background: var(--navy); }
+  .exp-timeline { margin-top: 3.5rem; position: relative; padding-left: 2rem; }
+  .exp-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 8px; bottom: 8px;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--teal), transparent);
+  }
+  .exp-item {
+    position: relative;
+    margin-bottom: 3.5rem;
+    padding-left: 2rem;
+  }
+  .exp-item::before {
+    content: '';
+    position: absolute;
+    left: -2.4rem; top: 8px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--teal);
+    border: 2px solid var(--navy);
+    box-shadow: 0 0 0 4px rgba(0,201,188,0.15);
+  }
+  .exp-header {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    flex-wrap: wrap; gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .exp-role {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.15rem; font-weight: 700;
+    color: var(--white);
+  }
+  .exp-company { color: var(--teal); font-weight: 600; font-size: 0.95rem; margin-bottom: 0.25rem; }
+  .exp-period {
+    background: var(--navy-card);
+    border: 1px solid var(--border);
+    color: var(--slate);
+    padding: 0.3rem 0.9rem;
+    border-radius: 100px;
+    font-size: 0.75rem; font-weight: 600;
+  }
+  .exp-achievements { margin-top: 1rem; }
+  .exp-achievement {
+    display: flex; gap: 0.75rem; align-items: flex-start;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    font-size: 0.87rem;
+    color: var(--slate-light);
+    line-height: 1.65;
+  }
+  .exp-achievement::before {
+    content: '→';
+    color: var(--teal);
+    font-size: 0.8rem;
+    margin-top: 0.15rem;
+    flex-shrink: 0;
+  }
+  .exp-achievement strong { color: var(--white); font-weight: 600; }
+  .exp-kpis {
+    display: flex; flex-wrap: wrap; gap: 0.6rem;
+    margin-top: 1rem;
+  }
+  .kpi-badge {
+    background: var(--teal-dim);
+    border: 1px solid rgba(0,201,188,0.2);
+    color: var(--teal);
+    padding: 0.3rem 0.9rem;
+    border-radius: 100px;
+    font-size: 0.75rem; font-weight: 700;
+  }
+
+  /* ── BRAND SECTION ─────────────────────────────────── */
+  #brand { background: var(--navy-mid); }
+  .brand-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+  }
+  .brand-card {
+    background: var(--navy-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 2rem;
+    transition: border-color 0.2s;
+  }
+  .brand-card:hover { border-color: rgba(0,201,188,0.25); }
+  .brand-card.wide { grid-column: span 2; }
+  .bc-icon { font-size: 2rem; margin-bottom: 1rem; }
+  .bc-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.7rem; }
+  .bc-text { color: var(--slate-light); font-size: 0.88rem; line-height: 1.75; }
+  .bc-text strong { color: var(--white); }
+  .philosophy-quote {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.4;
+    letter-spacing: -0.02em;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin: 1.2rem 0;
+  }
+  .philosophy-quote .hl { color: var(--teal); }
+
+  /* ── CTA ────────────────────────────────────────────── */
+  #cta {
+    background: var(--navy);
+    text-align: center;
+    padding: 120px 5%;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-bg-glow {
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,201,188,0.1) 0%, transparent 70%);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+  .cta-inner { position: relative; z-index: 2; max-width: 700px; margin: 0 auto; }
+  .cta-eyebrow {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    color: var(--teal); font-size: 0.78rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  .cta-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 1.2rem;
+  }
+  .cta-title .hl { color: var(--teal); }
+  .cta-text { color: var(--slate-light); font-size: 1.05rem; line-height: 1.75; margin-bottom: 2.5rem; }
+  .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem; }
+  .cta-divider { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+  .cta-divider::before, .cta-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .cta-divider span { color: var(--slate); font-size: 0.8rem; }
+  .cta-contacts { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; }
+  .contact-link {
+    display: flex; align-items: center; gap: 0.6rem;
+    color: var(--slate-light); text-decoration: none;
+    font-size: 0.88rem; font-weight: 500;
+    transition: color 0.2s;
+  }
+  .contact-link:hover { color: var(--teal); }
+  .contact-icon { font-size: 1rem; }
+
+  /* ── FOOTER ─────────────────────────────────────────── */
+  footer {
+    background: var(--navy-mid);
+    padding: 2rem 5%;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-name { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 0.9rem; }
+  .footer-name span { color: var(--teal); }
+  .footer-text { color: var(--slate); font-size: 0.8rem; }
+
+  /* ── ANIMATIONS ─────────────────────────────────────── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ─────────────────────────────────────── */
+  @media (max-width: 900px) {
+    #hero { grid-template-columns: 1fr; text-align: center; }
+    .hero-visual { display: none; }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); }
+    .hero-actions { justify-content: center; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .project-card, .project-card.reverse { grid-template-columns: 1fr; }
+    .project-card.reverse .pc-visual { order: 0; }
+    .pc-visual { border-left: none; border-top: 1px solid var(--border); min-height: 200px; }
+    .brand-grid { grid-template-columns: 1fr; }
+    .brand-card.wide { grid-column: span 1; }
+    nav .nav-links { display: none; }
+  }
+  @media (max-width: 600px) {
+    .skills-grid { grid-template-columns: 1fr; }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); }
+    .pc-impact { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  /* Achievements grid */
+  .achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+  }
+  .ach-card {
+    background: var(--navy-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 2rem;
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .ach-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--teal);
+  }
+  .ach-card:hover { border-color: rgba(0,201,188,0.3); transform: translateY(-4px); }
+  .ach-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+  .ach-title { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1rem; margin-bottom: 0.5rem; }
+  .ach-text { color: var(--slate-light); font-size: 0.83rem; line-height: 1.65; }
+  @media (max-width: 900px) { .achievements-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { .achievements-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">BK<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#cta" class="nav-cta">Let's Talk</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content reveal">
+    <div class="hero-eyebrow">Open to Opportunities · Supply Chain</div>
+    <h1 class="hero-name">Bharat<br><span class="accent">Kareti.</span></h1>
+    <p class="hero-title">Supply Chain Analyst &amp; Data-Driven Planning Expert</p>
+    <p class="hero-statement">
+      I turn <strong>complex supply chain challenges</strong> into measurable business wins.
+      With 4+ years across automotive, CPG, and distribution—I blend
+      <strong>predictive analytics, SAP, and Power BI</strong> to eliminate waste,
+      prevent stockouts, and drive revenue growth at scale.
+    </p>
+    <div class="hero-actions">
+      <a href="#cta" class="btn-primary">↓ Schedule an Interview</a>
+      <a href="https://www.linkedin.com/in/bharatkareti2107/" target="_blank" class="btn-secondary">🔗 LinkedIn Profile</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num" data-target="5">$0M</div>
+        <div class="stat-label">Inventory Optimized</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="85">0%</div>
+        <div class="stat-label">Stockout Reduction</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="25">0K+</div>
+        <div class="stat-label">SKUs Managed</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="50">0%</div>
+        <div class="stat-label">Manual Effort Reduced</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="avatar-ring">
+      <div class="avatar-inner">BK</div>
+    </div>
+    <!-- Floating cards -->
+    <div class="floating-card fc-1">
+      <div class="fc-label">Stockout Rate</div>
+      <div class="fc-value"><span class="up">↓ 85%</span> Reduced</div>
+    </div>
+    <div class="floating-card fc-2">
+      <div class="fc-label">Current Role</div>
+      <div class="fc-value">The Parts House</div>
+      <div class="fc-mini">Jacksonville, FL · 2024–Present</div>
+    </div>
+    <div class="floating-card fc-3">
+      <div class="fc-label">Revenue Enabled</div>
+      <div class="fc-value"><span class="up">$3.2M+</span></div>
+    </div>
+    <div class="location-badge">
+      <div class="dot"></div>
+      Jacksonville, FL · Available Now
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT STRIP -->
+<div id="impact-strip">
+  <div class="strip-track" id="stripTrack">
+    <div class="strip-item"><span class="s-num">$5M</span> Inventory Optimized</div>
+    <div class="strip-dot"></div>
+    <div class="strip-item"><span class="s-num">85%</span> Stockout Reduction</div>
+    <div class="strip-dot"></div>
+    <div class="strip-item"><span class="s-num">50%</span> Manual Effort Eliminated</div>
+    <div class="strip-dot"></div>
+    <div class="strip-item"><span class="s-num">$450K</span> Excess Stock Eliminated</div>
+    <div class="strip-dot"></div>
+    <div class="strip-item"><span class="s-num">25K+</span> SKUs Managed</div>
+    <div class="strip-dot"></div>
+    <div class="strip-item"><span class="s-num">40%</span> Faster Decision-Making</div>
+    <div class="strip-dot"></div>
+    <div class="strip-item"><span class="s-num">$3.2M</span> Revenue Growth Supported</div>
+    <div class="strip-dot"></div>
+    <div class="strip-item"><span class="s-num">98%</span> On-Time Delivery Rate</div>
+    <div class="strip-dot"></div>
+    <div class="strip-item"><span class="s-num">20%</span> Excess Inventory Reduced</div>
+    <div class="strip-dot"></div>
+    <div class="strip-item"><span class="s-num">60%</span> Reporting Effort Saved</div>
+    <div class="strip-dot"></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">About Me</div>
+  <div class="section-title">Built for complexity.<br>Driven by results.</div>
+  <div class="about-grid">
+    <div class="about-story reveal">
+      <p>
+        My supply chain story didn't start in a classroom—it started during a <strong>pandemic, with a startup idea and a problem nobody was solving.</strong>
+      </p>
+      <p>
+        In 2020, when COVID kept people home and Diwali was still around the corner, I co-founded 
+        <strong>Bijli Delivery</strong>—a last-mile delivery startup bringing firecrackers directly to customers' doors. 
+        People were scared to go out. Demand was real. And nobody was connecting the two. 
+        I saw the gap and moved fast.
+      </p>
+      <p>
+        Building Bijli from scratch meant doing everything myself—<strong>negotiating with warehouse vendors, 
+        mapping distribution routes, managing inventory for a perishable, hazardous product, 
+        and coordinating last-mile logistics</strong> under time pressure with zero margin for error. 
+        That hands-on chaos is where my passion for supply chain was born. I didn't just learn the theory—
+        I lived the cost of getting it wrong.
+      </p>
+      <p>
+        That experience led me to formalize the craft through an <strong>MS in Supply Chain Management at UT Dallas</strong>, 
+        then into real-world roles at MTE Industries and PepsiCo—where I learned that the biggest 
+        supply chain wins aren't in the warehouse. They're in the data.
+      </p>
+      <p>
+        Today at <strong>The Parts House</strong> in Jacksonville, I'm orchestrating inventory transformation 
+        across a multi-site distribution network—building the data infrastructure, predictive models, and 
+        executive dashboards that turn raw supply chain complexity into competitive advantage.
+      </p>
+      <p>
+        I don't just analyze supply chains. <strong>I redesign them.</strong>
+      </p>
+    </div>
+    <div class="about-right reveal">
+      <div class="strength-card">
+        <div class="sc-icon">📊</div>
+        <div>
+          <div class="sc-title">Data Architecture at Scale</div>
+          <div class="sc-text">Built SQL pipelines processing 25K+ SKUs, turning raw ERP data into real-time planning intelligence that leaders actually use.</div>
+        </div>
+      </div>
+      <div class="strength-card">
+        <div class="sc-icon">🔮</div>
+        <div>
+          <div class="sc-title">Predictive Demand Modeling</div>
+          <div class="sc-text">Applied ARIMA, time-series, and seasonality frameworks to reduce excess inventory by 20% while preventing stockouts.</div>
+        </div>
+      </div>
+      <div class="strength-card">
+        <div class="sc-icon">⚡</div>
+        <div>
+          <div class="sc-title">Cross-Functional Leadership</div>
+          <div class="sc-text">Synchronized Finance, Sales, and Operations around unified S&OP cycles—delivering $2M+ in aligned revenue outcomes.</div>
+        </div>
+      </div>
+      <div class="strength-card">
+        <div class="sc-icon">🏗️</div>
+        <div>
+          <div class="sc-title">Automation & Process Design</div>
+          <div class="sc-text">Reduced planning cycle times by 40% through VBA automation and Power BI workflows—built to scale, not to patch.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">Expertise</div>
+  <div class="section-title">The toolkit that<br>delivers results.</div>
+  <div class="skills-grid reveal">
+    <div class="skill-group">
+      <div class="sg-heading">🔧 Tools & Technologies</div>
+      <div class="skill-tags">
+        <span class="skill-tag highlight">SAP ERP</span>
+        <span class="skill-tag highlight">Power BI</span>
+        <span class="skill-tag highlight">SQL</span>
+        <span class="skill-tag highlight">Advanced Excel</span>
+        <span class="skill-tag">Oracle ERP</span>
+        <span class="skill-tag">Tableau</span>
+        <span class="skill-tag">Excel VBA</span>
+        <span class="skill-tag">XLOOKUP</span>
+        <span class="skill-tag">Pivot Tables</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="sg-heading">📦 Supply Chain Planning</div>
+      <div class="skill-tags">
+        <span class="skill-tag highlight">Inventory Optimization</span>
+        <span class="skill-tag highlight">Demand Forecasting</span>
+        <span class="skill-tag highlight">S&OP Planning</span>
+        <span class="skill-tag">Replenishment Planning</span>
+        <span class="skill-tag">Capacity Planning</span>
+        <span class="skill-tag">Supply Planning</span>
+        <span class="skill-tag">Logistics Management</span>
+        <span class="skill-tag">MRP</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="sg-heading">📐 Analytics & Modeling</div>
+      <div class="skill-tags">
+        <span class="skill-tag highlight">ARIMA</span>
+        <span class="skill-tag highlight">Time-Series Analysis</span>
+        <span class="skill-tag">Statistical Modeling</span>
+        <span class="skill-tag">Scenario Modeling</span>
+        <span class="skill-tag">Demand Variability</span>
+        <span class="skill-tag">MAPE Analysis</span>
+        <span class="skill-tag">Root Cause Analysis</span>
+        <span class="skill-tag">KPI Tracking</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="sg-heading">📊 Data & Reporting</div>
+      <div class="skill-tags">
+        <span class="skill-tag highlight">Executive Dashboards</span>
+        <span class="skill-tag highlight">Data Visualization</span>
+        <span class="skill-tag">Business Intelligence</span>
+        <span class="skill-tag">Ad-hoc Analysis</span>
+        <span class="skill-tag">Performance Dashboards</span>
+        <span class="skill-tag">Data Pipeline Design</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="sg-heading">🔄 Process & Operations</div>
+      <div class="skill-tags">
+        <span class="skill-tag highlight">Lean Six Sigma</span>
+        <span class="skill-tag">Process Optimization</span>
+        <span class="skill-tag">Workflow Automation</span>
+        <span class="skill-tag">Continuous Improvement</span>
+        <span class="skill-tag">Cost Reduction</span>
+        <span class="skill-tag">Operational Efficiency</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="sg-heading">🤝 Supplier & Procurement</div>
+      <div class="skill-tags">
+        <span class="skill-tag highlight">Supplier Scorecards</span>
+        <span class="skill-tag">Vendor Management</span>
+        <span class="skill-tag">Lead Time Analysis</span>
+        <span class="skill-tag">Procurement Analytics</span>
+        <span class="skill-tag">OTD Tracking</span>
+        <span class="skill-tag">Recovery Planning</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Signature Projects</div>
+  <div class="section-title">Real dashboards.<br>Real impact.</div>
+  <div class="projects-grid">
+
+    <!-- Project 1: Ray-Ban -->
+    <div class="project-card reveal">
+      <div class="pc-content">
+        <div>
+          <div class="pc-tag">🏭 Distribution Operations</div>
+          <h3 class="pc-title">Ray-Ban | Meta Warehouse Transformation Dashboard</h3>
+          <p class="pc-desc">
+            An end-to-end warehouse transformation analytics platform built to drive operational visibility 
+            across Ray-Ban × Meta's distribution network. Tracks inventory turns, fulfillment velocity, 
+            warehouse utilization, and throughput KPIs—enabling real-time decision-making at the executive level.
+          </p>
+          <div class="pc-impact">
+            <div class="pi-item"><div class="pi-num">40%</div><div class="pi-label">Cycle Time Saved</div></div>
+            <div class="pi-item"><div class="pi-num">Real-time</div><div class="pi-label">Inventory Insights</div></div>
+            <div class="pi-item"><div class="pi-num">Multi-site</div><div class="pi-label">Network View</div></div>
+          </div>
+          <div class="pc-tech">
+            <span class="tech-badge">Power BI</span>
+            <span class="tech-badge">SAP</span>
+            <span class="tech-badge">SQL</span>
+            <span class="tech-badge">KPI Dashboarding</span>
+          </div>
+        </div>
+        <a href="https://rayban-meta-whse-trasformation.vercel.app/" target="_blank" class="pc-link">View Live Dashboard →</a>
+      </div>
+      <div class="pc-visual">
+        <iframe src="https://rayban-meta-whse-trasformation.vercel.app/" title="Ray-Ban Meta Dashboard" loading="lazy"></iframe>
+        <div class="iframe-overlay">
+          <a href="https://rayban-meta-whse-trasformation.vercel.app/" target="_blank" class="iframe-btn">🚀 Open Live Demo</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2: Nike -->
+    <div class="project-card reverse reveal">
+      <div class="pc-content">
+        <div>
+          <div class="pc-tag">👟 Supply Planning</div>
+          <h3 class="pc-title">Nike Supply Planner Dashboard</h3>
+          <p class="pc-desc">
+            A comprehensive supply planning command center designed for Nike's global distribution network. 
+            Integrates demand signals, supplier lead times, and replenishment triggers—giving planners 
+            a single source of truth across product categories, regions, and fulfillment channels.
+          </p>
+          <div class="pc-impact">
+            <div class="pi-item"><div class="pi-num">85%</div><div class="pi-label">Stockout Reduction</div></div>
+            <div class="pi-item"><div class="pi-num">20%</div><div class="pi-label">Excess Inventory Cut</div></div>
+            <div class="pi-item"><div class="pi-num">$5M+</div><div class="pi-label">Value Managed</div></div>
+          </div>
+          <div class="pc-tech">
+            <span class="tech-badge">Predictive Analytics</span>
+            <span class="tech-badge">Replenishment Logic</span>
+            <span class="tech-badge">ARIMA</span>
+            <span class="tech-badge">Time-Series</span>
+          </div>
+        </div>
+        <a href="https://nike-supply-planner-dashboard.vercel.app/" target="_blank" class="pc-link">View Live Dashboard →</a>
+      </div>
+      <div class="pc-visual">
+        <iframe src="https://nike-supply-planner-dashboard.vercel.app/" title="Nike Supply Planner" loading="lazy"></iframe>
+        <div class="iframe-overlay">
+          <a href="https://nike-supply-planner-dashboard.vercel.app/" target="_blank" class="iframe-btn">🚀 Open Live Demo</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3: Bharat Demand -->
+    <div class="project-card reveal">
+      <div class="pc-content">
+        <div>
+          <div class="pc-tag">📈 Demand Planning</div>
+          <h3 class="pc-title">Bharat Demand Planning Intelligence Hub</h3>
+          <p class="pc-desc">
+            A full-stack demand planning platform that consolidates forecasting models, S&OP workflows, 
+            and scenario modeling into one executive-ready interface. Built to bridge the gap between 
+            raw data pipelines and actionable planning decisions—at enterprise scale.
+          </p>
+          <div class="pc-impact">
+            <div class="pi-item"><div class="pi-num">60%</div><div class="pi-label">Reporting Effort Saved</div></div>
+            <div class="pi-item"><div class="pi-num">S&OP</div><div class="pi-label">Cycle Integration</div></div>
+            <div class="pi-item"><div class="pi-num">Live</div><div class="pi-label">Demand Visibility</div></div>
+          </div>
+          <div class="pc-tech">
+            <span class="tech-badge">Excel VBA</span>
+            <span class="tech-badge">S&OP Modeling</span>
+            <span class="tech-badge">Demand Analytics</span>
+            <span class="tech-badge">Scenario Planning</span>
+          </div>
+        </div>
+        <a href="https://bharat-demand-dashboard.vercel.app/" target="_blank" class="pc-link">View Live Dashboard →</a>
+      </div>
+      <div class="pc-visual">
+        <iframe src="https://bharat-demand-dashboard.vercel.app/" title="Bharat Demand Dashboard" loading="lazy"></iframe>
+        <div class="iframe-overlay">
+          <a href="https://bharat-demand-dashboard.vercel.app/" target="_blank" class="iframe-btn">🚀 Open Live Demo</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Career Timeline</div>
+  <div class="section-title">4 years of<br>measurable impact.</div>
+  <div class="exp-timeline">
+
+    <div class="exp-item reveal">
+      <div class="exp-header">
+        <div>
+          <div class="exp-role">Supply Chain Business Analyst</div>
+          <div class="exp-company">The Parts House · Jacksonville, FL</div>
+        </div>
+        <div class="exp-period">Oct 2024 – Present</div>
+      </div>
+      <div class="exp-kpis">
+        <span class="kpi-badge">$5M Inventory Optimized</span>
+        <span class="kpi-badge">85% Stockout Reduction</span>
+        <span class="kpi-badge">50% Reporting Time Saved</span>
+        <span class="kpi-badge">$450K Excess Stock Eliminated</span>
+      </div>
+      <div class="exp-achievements">
+        <div class="exp-achievement">Orchestrated end-to-end inventory planning transformation across a multi-site distribution network using <strong>SAP, SQL, and Power BI</strong>—improving planning efficiency and enabling scalable, data-driven operations.</div>
+        <div class="exp-achievement">Engineered scalable data pipelines processing inventory and demand data across <strong>25K+ SKUs</strong>, reducing manual reporting effort by 50% through automated SQL and SAP extraction.</div>
+        <div class="exp-achievement">Led <strong>$5M inventory optimization initiative</strong> using predictive analytics and replenishment strategies—reducing stockouts by 85% and improving service levels across the distribution network.</div>
+        <div class="exp-achievement">Developed demand forecasting frameworks using time-series, seasonality, and supplier lead times—reducing excess inventory exposure by <strong>20%+</strong> across categories.</div>
+        <div class="exp-achievement">Facilitated <strong>S&OP planning cycles</strong> aligning promotions with supply plans, enabling <strong>$1.2M incremental revenue growth</strong> through improved demand-supply synchronization.</div>
+        <div class="exp-achievement">Built executive dashboards with Power BI and Excel (VBA, Pivot Tables, XLOOKUP) delivering real-time insights that accelerated leadership decision-making by <strong>40%</strong>.</div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-header">
+        <div>
+          <div class="exp-role">Demand Planning Analyst (Capstone)</div>
+          <div class="exp-company">PepsiCo · USA</div>
+        </div>
+        <div class="exp-period">Jan 2024 – May 2024</div>
+      </div>
+      <div class="exp-kpis">
+        <span class="kpi-badge">60% Reporting Reduction</span>
+        <span class="kpi-badge">ARIMA Forecasting</span>
+        <span class="kpi-badge">VMI Strategy</span>
+      </div>
+      <div class="exp-achievements">
+        <div class="exp-achievement">Analyzed PepsiCo distribution data across four operational units with a cross-functional team of five, identifying inefficiencies and improving fill rates across the supply planning ecosystem.</div>
+        <div class="exp-achievement">Built an automated <strong>S&OP dashboard prototype using Excel VBA macros</strong>, reducing manual reporting effort by 60% and enabling real-time demand visibility at enterprise scale.</div>
+        <div class="exp-achievement">Evaluated forecasting models using <strong>MAPE, ARIMA, and time-series analysis</strong>—improving prediction accuracy and enabling data-driven decisions across multiple product categories.</div>
+        <div class="exp-achievement">Proposed a <strong>vendor-managed inventory (VMI) strategy</strong> through stockout pattern analysis and simulation techniques—improving product availability and reducing lost sales.</div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-header">
+        <div>
+          <div class="exp-role">Co-Founder</div>
+          <div class="exp-company">Bijli Delivery · India</div>
+        </div>
+        <div class="exp-period">2020 · Covid Era</div>
+      </div>
+      <div class="exp-kpis">
+        <span class="kpi-badge">🚀 Startup Founded</span>
+        <span class="kpi-badge">Last-Mile Logistics</span>
+        <span class="kpi-badge">Hazardous Goods</span>
+        <span class="kpi-badge">0→1 Supply Chain Build</span>
+      </div>
+      <div class="exp-achievements">
+        <div class="exp-achievement">Co-founded a last-mile delivery startup during COVID-19 that delivered <strong>firecrackers directly to customers' homes</strong>—capitalizing on suppressed demand when people were unable to shop in-store.</div>
+        <div class="exp-achievement">Personally negotiated with <strong>warehouse vendors, distribution partners, and logistics providers</strong>—building an end-to-end supply chain from scratch with no prior playbook.</div>
+        <div class="exp-achievement">Managed inventory planning and routing for a <strong>time-sensitive, hazardous product</strong> under peak seasonal demand, developing real-world intuition for the cost of supply chain failure.</div>
+        <div class="exp-achievement">This founding experience ignited a deep passion for supply chain operations and became the catalyst for pursuing a <strong>formal MS in Supply Chain Management at UT Dallas</strong>.</div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-header">
+        <div>
+          <div class="exp-role">Supply Chain Analyst</div>
+          <div class="exp-company">MTE Industries · India</div>
+        </div>
+        <div class="exp-period">Jan 2020 – Feb 2022</div>
+      </div>
+      <div class="exp-kpis">
+        <span class="kpi-badge">98% On-Time Delivery</span>
+        <span class="kpi-badge">$200K Procurement Savings</span>
+        <span class="kpi-badge">15+ Vendors Scored</span>
+      </div>
+      <div class="exp-achievements">
+        <div class="exp-achievement">Managed comprehensive supply chain operations for <strong>Honda, Mahindra, and TVS</strong> using ERP systems and MRP tools, achieving 98% on-time delivery across high-volume production schedules.</div>
+        <div class="exp-achievement">Built executive dashboards using <strong>Power BI and Excel</strong> to track PPV, utilization, and risk metrics—enabling proactive decisions that reduced procurement costs by <strong>$200K</strong>.</div>
+        <div class="exp-achievement">Designed supplier scorecards using SQL and Excel analytics evaluating <strong>15+ vendors</strong> across OTD, quality, and lead time—improving supplier accountability and procurement decisions.</div>
+        <div class="exp-achievement">Led supplier recovery planning using root cause analysis and cross-functional collaboration—resolving delivery risks and ensuring production continuity across high-dependency automotive supply chains.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements" style="background: var(--navy-mid);">
+  <div class="section-label">Recognition & Education</div>
+  <div class="section-title">The credentials<br>behind the results.</div>
+  <div class="achievements-grid">
+    <div class="ach-card reveal">
+      <div class="ach-icon">🎓</div>
+      <div class="ach-title">MS, Supply Chain Management</div>
+      <div class="ach-text">The University of Texas at Dallas — May 2024. Specialized in data-driven planning, analytics, and operations strategy at one of the top-ranked SCM programs in the U.S.</div>
+    </div>
+    <div class="ach-card reveal">
+      <div class="ach-icon">💻</div>
+      <div class="ach-title">B.Tech, Computer Science Engineering</div>
+      <div class="ach-text">Gandhi Institute of Technology and Management — May 2021. A technical foundation that fuels analytical rigor and data infrastructure thinking in every supply chain role.</div>
+    </div>
+    <div class="ach-card reveal">
+      <div class="ach-icon">🏆</div>
+      <div class="ach-title">PepsiCo Capstone Excellence</div>
+      <div class="ach-text">Selected for PepsiCo's competitive capstone program—led a five-person cross-functional team delivering enterprise S&OP and forecasting improvements across four operational units.</div>
+    </div>
+    <div class="ach-card reveal">
+      <div class="ach-icon">📊</div>
+      <div class="ach-title">SAP & Power BI Practitioner</div>
+      <div class="ach-text">Hands-on enterprise experience across SAP ERP and Power BI at production scale—managing 25K+ SKUs and building executive-grade dashboards used in daily operational decisions.</div>
+    </div>
+    <div class="ach-card reveal">
+      <div class="ach-icon">🚀</div>
+      <div class="ach-title">$5M Inventory Transformation</div>
+      <div class="ach-text">Led one of the largest inventory optimization initiatives at The Parts House—delivering 85% stockout reduction and $3.2M+ in revenue impact across a multi-site distribution network.</div>
+    </div>
+    <div class="ach-card reveal">
+      <div class="ach-icon">🔄</div>
+      <div class="ach-title">Lean Six Sigma Practitioner</div>
+      <div class="ach-text">Applied Lean Six Sigma principles to redesign replenishment workflows and eliminate waste—driving 40% cycle time reduction and sustainable operational improvements across teams.</div>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND / VALUES -->
+<section id="brand">
+  <div class="section-label">Personal Brand</div>
+  <div class="section-title">How I think.<br>How I lead.</div>
+  <div class="brand-grid">
+    <div class="brand-card reveal">
+      <div class="bc-icon">🎯</div>
+      <div class="bc-title">Results Over Effort</div>
+      <div class="bc-text">I measure success in <strong>business outcomes</strong>, not activity. Every analysis I build has a dollar figure, a percentage saved, or a decision accelerated attached to it. Effort is invisible. Results are not.</div>
+    </div>
+    <div class="brand-card reveal">
+      <div class="bc-icon">🔗</div>
+      <div class="bc-title">Systems Thinker</div>
+      <div class="bc-text">Supply chains are ecosystems. I don't optimize in isolation—I map <strong>the full chain of cause and effect</strong>, from supplier lead times to customer experience, and design solutions that hold under real-world pressure.</div>
+    </div>
+    <div class="brand-card reveal">
+      <div class="bc-icon">🌉</div>
+      <div class="bc-title">The Bridge Builder</div>
+      <div class="bc-text">My tech background and supply chain expertise let me translate between <strong>data teams and business leaders</strong>. I speak both languages fluently—and build the systems that bring them together.</div>
+    </div>
+    <div class="brand-card reveal">
+      <div class="bc-icon">📐</div>
+      <div class="bc-title">Built to Scale</div>
+      <div class="bc-text">I don't build point solutions. Whether it's a SQL pipeline, a forecasting model, or a replenishment workflow—I architect for <strong>scale, resilience, and low maintenance</strong>. Things I build keep working.</div>
+    </div>
+    <div class="brand-card wide reveal">
+      <div class="philosophy-quote">
+        "The best supply chain decisions happen at the intersection of <span class="hl">data precision</span> and <span class="hl">business judgment</span>.<br>My job is to make that intersection obvious."
+      </div>
+      <div class="bc-text" style="margin-top: 1rem;">
+        I'm motivated by the compounding effect of getting supply chain fundamentals right—when inventory flows cleanly, 
+        revenue follows. When demand signals are sharp, waste disappears. I've seen it happen at scale, and I bring that 
+        conviction to every organization I join.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-bg-glow"></div>
+  <div class="cta-inner reveal">
+    <div class="cta-eyebrow">✦ Open to Opportunities</div>
+    <h2 class="cta-title">Ready to make your<br>supply chain a <span class="hl">competitive advantage?</span></h2>
+    <p class="cta-text">
+      I'm currently exploring Supply Chain Analyst, Demand Planning, and Inventory Optimization roles 
+      where I can bring data infrastructure, predictive modeling, and cross-functional leadership 
+      to organizations that care about measurable impact.
+    </p>
+    <div class="cta-actions">
+      <a href="mailto:bharat21jobs@gmail.com" class="btn-primary">📅 Schedule an Interview</a>
+      <a href="https://www.linkedin.com/in/bharatkareti2107/" target="_blank" class="btn-secondary">🔗 Connect on LinkedIn</a>
+    </div>
+    <div class="cta-divider"><span>or reach me directly</span></div>
+    <div class="cta-contacts">
+      <a href="mailto:bharat21jobs@gmail.com" class="contact-link">
+        <span class="contact-icon">✉️</span> bharat21jobs@gmail.com
+      </a>
+      <a href="tel:+14695925502" class="contact-link">
+        <span class="contact-icon">📞</span> +1 (469) 592-5502
+      </a>
+      <a href="https://www.linkedin.com/in/bharatkareti2107/" target="_blank" class="contact-link">
+        <span class="contact-icon">💼</span> /in/bharatkareti2107
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">Bharat <span>Kareti</span></div>
+  <div class="footer-text">Supply Chain Analyst · Jacksonville, FL · Open to Opportunities</div>
+  <div class="footer-text">© 2025 Bharat Kareti</div>
+</footer>
+
+<script>
+  // Duplicate the strip for seamless scroll
+  const track = document.getElementById('stripTrack');
+  if (track) {
+    track.innerHTML = track.innerHTML + track.innerHTML;
+  }
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Counter animation
+  function animateCounter(el, target, suffix, prefix='') {
+    let current = 0;
+    const duration = 1800;
+    const steps = 60;
+    const increment = target / steps;
+    const interval = duration / steps;
+    const timer = setInterval(() => {
+      current = Math.min(current + increment, target);
+      el.textContent = prefix + Math.round(current) + suffix;
+      if (current >= target) clearInterval(timer);
+    }, interval);
+  }
+
+  const statsSection = document.querySelector('.hero-stats');
+  let counted = false;
+  const statsObserver = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting && !counted) {
+      counted = true;
+      const statNums = document.querySelectorAll('.stat-num');
+      const configs = [
+        { target: 5, suffix: 'M', prefix: '$' },
+        { target: 85, suffix: '%', prefix: '' },
+        { target: 25, suffix: 'K+', prefix: '' },
+        { target: 50, suffix: '%', prefix: '' },
+      ];
+      statNums.forEach((el, i) => {
+        const c = configs[i];
+        if (c) animateCounter(el, c.target, c.suffix, c.prefix);
+      });
+    }
+  }, { threshold: 0.5 });
+  if (statsSection) statsObserver.observe(statsSection);
+</script>
+</body>
+</html>
